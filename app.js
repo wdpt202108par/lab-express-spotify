@@ -24,5 +24,9 @@ const spotifyApi = new SpotifyWebApi({
     .catch(error => console.log('Something went wrong when retrieving an access token', error));
   
 // Our routes go here:
+app.get('/', (req, res, next) => {
+  console.log('ok');
+  res.render('homepage');
+});
 
 app.listen(3500, () => console.log('My Spotify project running on port 3500 🎧 🥁 🎸 🔊'));
