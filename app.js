@@ -29,4 +29,17 @@ app.get('/', (req, res, next) => {
   res.render('homepage');
 });
 
+app.get('/artist-search', (req, res, next) => {
+  res.send(req.query);
+
+spotifyApi
+  .searchArtists(/*'ICI VA L'ARTISTE DE LA REQUÊTE'*/)
+  .then(data => {
+    console.log('The received data from the API: ', data.body);
+    // ----> 'HERE WHAT WE WANT TO DO AFTER RECEIVING THE DATA FROM THE API'
+  })
+  .catch(err => console.log('The error while searching artists occurred: ', err));
+  
+});
+
 app.listen(3500, () => console.log('My Spotify project running on port 3500 🎧 🥁 🎸 🔊'));
