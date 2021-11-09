@@ -28,6 +28,7 @@ spotifyApi
 // Our routes go here:
 
 app.get('/', (req, res) => {
+    console.log('i am at home');
     res.render('index');
   });
 
