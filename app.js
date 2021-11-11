@@ -13,9 +13,9 @@ app.use(express.static(__dirname + '/public'));
 
 // setting the spotify-api goes here:
 const spotifyApi = new SpotifyWebApi({
-    clientId: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET
-  });
+  clientId: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET
+});
   
   // Retrieve an access token
   spotifyApi
@@ -24,22 +24,29 @@ const spotifyApi = new SpotifyWebApi({
     .catch(error => console.log('Something went wrong when retrieving an access token', error));
   
 // Our routes go here:
-app.get('/', (req, res, next) => {
-  console.log('ok');
+app.get('/', (req, res) => {
   res.render('homepage');
 });
 
-app.get('/artist-search', (req, res, next) => {
-  res.send(req.query);
+app.get('/artist-search', (req, res) => {
+  spotifyApi
+    .searchArtists(req.query.artist)
+    .then(data => {
+      console.log('The received data from the API: ', data.body);
+      // dans le terminal, on voit data {artists:{ items:[[]]}}
+      // pour voir le contenu de 'items' dans le terminal, enlever le commentaire ligne 39
+      // console.log(data.body.artists.items);
+      // on obtient url spotify, followers, genre, id, images, name, popularity, type, uri
+      //on renvoie ces data
+      res.render('artist-search-results', data.body.artists.items);
+      
+      // pour voir contenu de images dans le terminal: tableau de 3 objets, enlever commentaire ligne 45. Chaque objet contient 3 données : height, url, width.
+      // console.log(data.body.artists.items[0].images)
 
-spotifyApi
-  .searchArtists(/*'ICI VA L'ARTISTE DE LA REQUÊTE'*/)
-  .then(data => {
-    console.log('The received data from the API: ', data.body);
-    // ----> 'HERE WHAT WE WANT TO DO AFTER RECEIVING THE DATA FROM THE API'
-  })
-  .catch(err => console.log('The error while searching artists occurred: ', err));
-  
+      //pour voir url de l'image de la plus petite de taille du 1er item, enlever commentaire ligne 48
+      // console.log(data.body.artists.items[0].images[2].url)
+    })
+    .catch(err => console.log('The error while searching artists occurred: ', err));  
 });
 
 app.listen(3500, () => console.log('My Spotify project running on port 3500 🎧 🥁 🎸 🔊'));
