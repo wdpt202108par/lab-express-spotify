@@ -23,20 +23,20 @@ spotifyApi
     .catch(error => console.log('Something went wrong when retrieving an access token', error));
 
 // Our routes go here:
+//iteration3, step1
 //homepage
 app.get('/', (req, res)=> {
   res.render('index');
 //console.log('Website is launching .. 👾');
 })
 
-
+//iteration3, step 2 
 //artist search page
   app.get('/artist-search', (req, res)=> {
-
     spotifyApi
-    .searchArtists(req.query.artists)
+    .searchArtists(req.query.q)
     .then(data => {
-     // console.log('The received data from the API: ', data.body);
+      console.log('The received data from the API: ', data.body);
     // ----> 'HERE WHAT WE WANT TO DO AFTER RECEIVING THE DATA FROM THE API'
       res.render('artist-search-results',data.body.artists);
     })
@@ -44,7 +44,6 @@ app.get('/', (req, res)=> {
   })
 
   //albums
-
 
 
 app.listen(3000, () => console.log('My Spotify project running on port 3000 🎧 🥁 🎸 🔊'));
