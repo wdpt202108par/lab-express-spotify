@@ -1,0 +1,20 @@
+#homepage{
+    background-image:url("../images/spotify-background.jpeg") ;
+    background-size: cover;
+    height:100vh;
+    margin-top:0;
+    display:flex;
+}
+
+#form {
+    
+    margin:auto;
+}
+
+#input {
+    
+}
+
+#button {
+    
+}
