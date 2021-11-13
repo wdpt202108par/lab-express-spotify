@@ -33,22 +33,17 @@ app.get('/', (req, res, next) => {
     res.render('home')
 })
 
-app.get('/artist-search', (req, res, next) => {
+app.get('/artist-search-results', (req, res, next) => {
     console.log("artist search ok")
-
     spotifyApi
         .searchArtists(req.query.artist)
         .then(data => {
             console.log('The received data from the API: ', data.body);
             // ----> 'HERE WHAT WE WANT TO DO AFTER RECEIVING THE DATA FROM THE API'
-            res.send(req.data);
+            res.render("artist-search-results", { data: data.body.artists.items[0] });
         })
         .catch(err => console.log('The error while searching artists occurred: ', err));
 })
-
-
-
-
 
 
 app.listen(3000, () => console.log('My Spotify project running on port 3000 🎧 🥁 🎸 🔊'));

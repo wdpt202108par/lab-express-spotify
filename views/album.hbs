@@ -1,0 +1,17 @@
+<div class="search-artistalbums-result">
+    <h3>Results</h3>
+    
+    <!--Passer en revue tous les albums-->
+  {{#each albums}}
+
+        <!--Ajouter name album-->
+<div> {{albums.name}} </div>
+
+      <!--Ajouter album cover-->
+  <img src="" alt="">
+
+      <!--Ajouter lien album-->
+<a href="/albums/{{album.id}}">View tracks</a>
+    
+
+</div>
