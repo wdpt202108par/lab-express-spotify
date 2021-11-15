@@ -1,7 +1,9 @@
-{{#each albums}}
-<div>  
-  <img src={{this.images.[0].url}} alt="img"/>
-  {{this.name}}  
-  <a href="/albums/{{this.id}}">View Tracks</a>
-</div>
-{{/each}}
+<section class='results-section'>  
+  {{#each albums}}
+    <div>  
+      <img src={{this.images.[0].url}} alt="img"/>
+      {{this.name}}  
+      <a href="/tracks/{{this.id}}">View Tracks</a>
+    </div>
+  {{/each}}
+</section>

@@ -1,0 +1,165 @@
+/* LAYOUT */
+
+html {
+  font-family: Montserrat, sans-serif;
+}
+
+nav {
+  background: black;
+  color: green; 
+}
+nav h1 {
+ text-align: center;
+ font-size: 300%;
+ margin: 0;
+ padding-top: 40px; 
+}
+
+nav div {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  padding-bottom: 10px;
+}
+
+nav a {
+  font-size: 110%;
+  text-decoration: none;
+  color: rgba(220, 220, 220, 0.829);
+}
+
+nav img {
+  height: 40px;
+}
+
+body {
+  margin: 0;
+  background: black;
+}
+
+
+/* HOME */
+
+
+.form-container {
+  margin: 0;
+  height: 100vh;
+  background-image: url("../images/spotify-background.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+}
+
+.form-container form {
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 20vh;
+  padding: 0 50px;
+  border-radius: 20px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.form-container input {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.form-container button {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: green;
+}
+
+.form-container button:hover {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: greenyellow;
+}
+
+
+/* ARTISTS & ALBUMS RESULTS*/
+
+
+.results-section {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: 50px;
+  gap: 15px;
+}
+
+.results-section div {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  line-height: 1.5rem;
+}
+
+.results-section img {
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.results-section a {
+  margin: 15px;
+  padding: 1px 10px;
+  text-decoration: none;
+  background-color: green;
+  color: black;
+  border-radius: 5px;
+}
+
+.results-section a:hover {
+  margin: 15px;
+  text-decoration: none;
+  background-color: greenyellow;
+  color: black;
+  border-radius: 5px;
+}
+
+
+/* TRACKS */
+
+.tracks-container {
+  margin-top: 30px;;
+  display: flex;
+  flex-direction: column;
+}
+
+.tracks-container h3 {
+  margin: 4px 200px;
+  padding: 20px 15px;
+  border-radius: 3px;
+  border: grey;
+  color: white;
+  background: rgba(0, 128, 0, 0.5);
+}
+
+.tracks-container article {
+  margin: 0 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: white;
+}
+
+.tracks-container div {
+  display: flex;
+  align-items: center;
+  background: rgba(128, 128, 128, 0.4);
+  padding: 0 15px;
+  border-radius: 3px;
+  border: grey;
+}
+
+.tracks-container figure {
+  margin-left: auto;
+}
+
+

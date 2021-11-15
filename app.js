@@ -26,6 +26,7 @@ spotifyApi
 
 // Our routes go here:
 
+//Iteration 3
 //Creation of a route for the homepage
 app.get('/home', (req, res, next) => {
   res.render('home');
@@ -43,9 +44,9 @@ app.get('/artist-search', (req, res, next) => {
 });
 
 //Iteration 4 : View Albums
-app.get('/albums/:id', (req, res, next) => {
+app.get('/albums/:artistId', (req, res, next) => {
   spotifyApi
-  .getArtistAlbums(req.params.id)
+  .getArtistAlbums(req.params.artistId)
   .then(
     function(data) {
       console.log('Album information', data.body);
@@ -58,6 +59,14 @@ app.get('/albums/:id', (req, res, next) => {
 })
 
 //Iteration 5 : View Tracks
-
+// Get tracks in an album
+app.get('/tracks/:albumId', (req, res, next) => {
+  spotifyApi.getAlbumTracks(req.params.albumId)
+  .then(function(data) {
+    console.log('Tracks information',data.body);
+    res.render('tracks', { tracks : data.body.items } )
+  }, function(err) {
+    console.log('Something went wrong!', err);
+  });})
 
 app.listen(3000, () => console.log('My Spotify project running on port 3000 🎧 🥁 🎸 🔊'));
