@@ -1,0 +1,17 @@
+<section class="tracks-container">
+  <h3>Title</h3>
+  <article>
+    {{#each tracks}}
+        <div>  
+          {{this.name}}
+          <figure>
+            <audio
+                controls
+                src= {{this.preview_url}}>
+                    Your browser does not support the
+                    <code>audio</code> element.
+            </audio>
+          </figure>          
+        </div>
+    {{/each}}  </article>
+</section>
